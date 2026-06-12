@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ─── Tesla / Automotive Design System ───────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg:            #0B0B0B;
+  --surface:       #111111;
+  --panel:         #1A1A1A;
+  --panel-2:       #222222;
+
+  /* Borders */
+  --border:        #2A2A2A;
+  --border-light:  #333333;
+
+  /* Text */
+  --text-h:        #FFFFFF;
+  --text-body:     #D1D5DB;
+  --text-muted:    #9CA3AF;
+  --text-dim:      #6B7280;
+
+  /* Semantic only — used for data states */
+  --green:         #22C55E;
+  --amber:         #F59E0B;
+  --red:           #EF4444;
+
+  /* Route color on map */
+  --route:         #E5E7EB;
+
+  /* Typography */
+  --font-main:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radius */
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  14px;
+  --r-xl:  20px;
+
+  /* Transitions */
+  --transition: all 0.2s ease;
+}
+
+/* ─── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 4px; }
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes pulse-critical { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes pulse-marker {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 10px rgba(34,197,94,0.8); opacity: 1; }
+  50% { box-shadow: 0 0 20px rgba(34,197,94,0.3); opacity: 0.8; }
+}
+@keyframes panGrid {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(60px); }
+}
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes map-energy-flow {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+.route-energy-pulse {
+  animation: map-energy-flow 1.5s linear infinite;
+  filter: drop-shadow(0 0 6px #FFFFFF);
+}
+.route-neon-glow {
+  filter: drop-shadow(0 0 8px #22D3EE) drop-shadow(0 0 16px #22D3EE);
+}
+.marker-glow-amber {
+  animation: pulse-marker 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-glow-amber svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ─── Utility ─────────────────────────────────────────────────────────────── */
+.animate-fadeIn  { animation: fadeIn 0.4s ease forwards; }
+.animate-slideUp { animation: slideUp 0.5s ease forwards; }
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background: #FFFFFF;
+  color: #0B0B0B;
+  border: none;
+  border-radius: var(--r-md);
+  padding: 13px 28px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: var(--transition);
+  font-family: var(--font-main);
+}
+.btn-primary:hover { background: #E5E7EB; }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  padding: 11px 26px;
+  color: var(--text-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-main);
+}
+.btn-outline:hover { border-color: #555; color: #fff; }
+
+/* ─── Inputs ──────────────────────────────────────────────────────────────── */
+input, select, textarea {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  color: var(--text-h);
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--transition);
+  font-family: var(--font-main);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #555555;
+}
+input::placeholder { color: var(--text-dim); }
+select option { background: var(--panel); color: var(--text-h); }
+
+/* ─── Cards ───────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 24px;
+}
+
+/* ─── Page Wrapper ────────────────────────────────────────────────────────── */
+.page-wrapper {
+  min-height: 100vh;
+  padding-top: 68px;
+  background: var(--bg);
+}
