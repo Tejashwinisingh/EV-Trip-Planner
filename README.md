@@ -1,36 +1,56 @@
-# 🚗⚡ EV Trip Planner
+🚀 Step 1: Start MongoDB
 
-EV Trip Planner is a web application designed to help electric vehicle (EV) users plan efficient trips by identifying charging stations along the route and estimating battery requirements.
+Make sure MongoDB is running.
 
-## ✨ Features
+If you're using MongoDB Atlas:
 
-- 🔐 User Authentication
-- 🗺️ Route Planning
-- ⚡ EV Charging Station Finder
-- 🔋 Battery Range Estimation
-- 📍 Location-Based Search
-- 📱 Responsive User Interface
+Check that your connection string in .env is correct.
 
-## 🛠️ Technologies Used
+If you're using local MongoDB:
 
-- HTML
-- CSS
-- JavaScript
-- Python
-- Django
-- SQLite
+mongod
+🚀 Step 2: Run Backend
 
-## 🚀 Future Enhancements
+Open a terminal in the backend folder:
 
-- Real-time charging station availability
-- Traffic-aware route optimization
-- Charging cost estimation
-- Integration with Google Maps API
+cd backend
+npm install
+npm start
 
-## 🎯 Objective
+or if your package.json uses nodemon:
 
-To simplify long-distance travel for EV owners by providing intelligent route planning and charging station recommendations.
+npm run dev
 
-## 👩‍💻 Author
+You should see something like:
 
-Tejashwini Dhadekar
+Server running on port 5000
+MongoDB Connected
+🚀 Step 3: Run Frontend
+
+Open another terminal:
+
+cd frontend
+npm install
+npm start
+
+or
+
+npm run dev
+
+Depending on whether you use:
+
+Create React App → npm start
+Vite → npm run dev
+🚀 Step 4: Open Browser
+
+Usually:
+
+Frontend: http://localhost:3000
+
+or
+
+Frontend: http://localhost:5173
+
+Backend:
+
+http://localhost:5000
